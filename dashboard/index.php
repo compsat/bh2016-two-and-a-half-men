@@ -6,8 +6,8 @@
 	echo("Hello, " . $_SESSION['Username'] . "<br/>");
 
 	//Gets the ID of the current user session
-	$id_query = mysql_query("SELECT id FROM users WHERE username = '" . $username . "'");
-	$id = mysql_fetch_array($id_query)['id'];
+	$get_ids = mysql_query("SELECT id FROM users WHERE username = '" . $username . "'");
+	$id = mysql_fetch_array($get_ids)['id'];
 
 	//If a new game is submitted
 	if(!empty($_POST['new_game']))
@@ -40,8 +40,8 @@
 	}
 	
 	//Uses that ID to retrieve the list of games
-	$games_query = "SELECT * FROM games WHERE user_id = " . $id;
-	$games = mysql_query($games_query);
+	$get_games = "SELECT * FROM games WHERE user_id = " . $id;
+	$games = mysql_query($get_games);
 
 	echo("<b>Games</b><br/>");
 	//Gets all the games
@@ -50,7 +50,7 @@
 		echo($row['name'] . "<br/>");
 	}
 	
-	echo("Create new game<br/>");
+	echo("<b>Create new game</b><br/>");
 	echo('<form method="POST" action="" name="new_game" id="new_game">');
 	echo('	<label for="game_name">Game Name:</label><input type="text" name="game_name" id="game_name" /><br/>');
 	echo('	<label for="game_type">Game Type:</label>
@@ -63,6 +63,16 @@
 	echo('	<label for="game_data">Game Data:</label><br/><textarea name="game_data" id="game_data" rows="4" cols="50"></textarea><br/>');
 	echo('	<input type="submit" name="new_game" id="new_game" value="Create Game" />');
 	echo('</form>');	
+	
+	echo('<div id="searchbox">');
+	echo('	<form method="POST" action="../search.php" name="search" id="search">');
+	echo('		<label for="search_query">Search:</label><input type="text" name="search_query" id="search_query" /><br/>');
+	echo('		<input type="radio" name="search_type" value="name" checked="checked">Name</input>');
+	echo('		<input type="radio" name="search_type" value="user">User</input>');
+	echo('		<input type="radio" name="search_type" value="category">Category</input>');
+	echo('		<input type="submit" name="search" id="search" value="Search" />');
+	echo('	</form>');
+	echo('</div>');	
 	
 	echo("<a href=../logout.php>Logout</a>");
 ?>
