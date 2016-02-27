@@ -44,6 +44,7 @@
 				$email = $row['email'];
 				
 				$_SESSION['Username'] = $username;
+				$_SESSION['UserID'] = $row['id'];
 				$_SESSION['EmailAddress'] = $email;
 				$_SESSION['LoggedIn'] = 1;
 				
