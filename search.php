@@ -24,9 +24,12 @@
 		while($game = mysql_fetch_array($get_games))
 		{
 			$id = $game['user_id'];
+			$name = $game['name'];
+			$type = $game['type']; ,
+			
 			$username = mysql_fetch_array(mysql_query("SELECT * FROM users WHERE id='" . $game['user_id'] . "'"))['username'];
-				
-			echo($game['name'] . ", by " . $username . "<br/>");	
+			
+			echo("<a href='startgame.php'>". $name ."</a>, by " . $username . "<br/>");	
 		}
 	}
 	

@@ -102,36 +102,36 @@
 <a href=../logout.php>Logout</a>
 
 <script>
-	function updateRows() {
-		var n = parseInt(document.getElementById("num_data").value);
+function updateRows() {
+	var n = parseInt(document.getElementById("num_data").value);
+	
+	var rows = document.getElementById("rows");
+	var br = document.createElement("br");
+	
+	while (rows.hasChildNodes()) {
+		rows.removeChild(rows.lastChild);
+	}
+	
+	if(document.getElementById("game_type").value != "ordering")
+	{
+		n *= 2;
+	}
+	
+	for(var i = 0; i < parseInt(n) ; i++) {
 		
-		var rows = document.getElementById("rows");
-		var br = document.createElement("br");
-		
-		while (rows.hasChildNodes()) {
-			rows.removeChild(rows.lastChild);
-		}
-		
+		var row = document.createElement("input");
+		row.id = i;
+		row.type = row.name = "row" + i;
+		rows.appendChild(row);
 		if(document.getElementById("game_type").value != "ordering")
 		{
-			n *= 2;
+			i++;
+			var row2 = document.createElement("input");
+			row2.id = i;
+			row2.type = row2.name = "row" + i;
+			rows.appendChild(row2);
 		}
-		
-		for(var i = 0; i < parseInt(n) ; i++) {
-			
-			var row = document.createElement("input");
-			row.id = i;
-			row.type = row.name = "row" + i;
-			rows.appendChild(row);
-			if(document.getElementById("game_type").value != "ordering")
-			{
-				i++;
-				var row2 = document.createElement("input");
-				row2.id = i;
-				row2.type = row2.name = "row" + i;
-				rows.appendChild(row2);
-			}
-			rows.appendChild(document.createElement("br"));
-		}
+		rows.appendChild(document.createElement("br"));
 	}
+}
 </script>
