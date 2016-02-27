@@ -43,7 +43,7 @@
 	$games_query = "SELECT * FROM games WHERE user_id = " . $id;
 	$games = mysql_query($games_query);
 
-	echo("Games<br/>");
+	echo("<b>Games</b><br/>");
 	//Gets all the games
 	while($row = mysql_fetch_array($games))
 	{
@@ -60,7 +60,7 @@
 				<option value="order">Ordering</option>
 				<option value="flashcards">Flashcards</option>
 			</select><br/>');
-	echo('	<label for="username">Game Name:</label><br/><textarea name="game_data" id="game_data" rows="4" cols="50"></textarea><br/>');
+	echo('	<label for="game_data">Game Data:</label><br/><textarea name="game_data" id="game_data" rows="4" cols="50"></textarea><br/>');
 	echo('	<input type="submit" name="new_game" id="new_game" value="Create Game" />');
 	echo('</form>');	
 	
