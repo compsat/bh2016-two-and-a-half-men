@@ -37,7 +37,6 @@
 			if(strcmp($game_type, "ordering") == 0)
 			{
 				$a = $_POST["row" . $i];
-				echo($a);
 				$insertrowquery = "INSERT INTO data (game_id, string_a, string_b) VALUES('". $newgameid ."', '". $a ."', ' ')";
 			}
 			else 
@@ -72,7 +71,7 @@
 			<option value="match">Matching Type</option>
 			<option value="category">Categories</option>
 			<option value="ordering">Ordering</option>
-			<option value="flashcards">Flashcards</option>
+			<!-- <option value="flashcards">Flashcards</option> -->
 		</select><br/>
 	<label for="category">Category:</label>
 	<select name="category" id="category">
