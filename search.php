@@ -105,7 +105,8 @@
 					{
 						echo("<div style='padding: 5% 2% 5% 2%'>");
 						echo("<a href='startgame.php?id=". $game['id'] . "&game_type=" . $game['type']  . "'><button type='button' class='list-group-item btn-block'>". $game["name"] ."</button></a>");
-						echo("<br/><span style='padding-top:10%;'><strong>Category: </strong>". $game['category'] ."</span><br/>");
+						echo("<br/><span><strong>Creator: </strong>". $game['owner_name'] ."</span>");
+						echo("<br/><span style='padding-top:10%;'><strong>Category: </strong>". $game['category'] ."</span>");
 						echo("<br/><span><strong>Description: </strong>". $game['description'] ."</span>");
 						echo("</div>");
 					}

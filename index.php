@@ -44,7 +44,7 @@ if(!empty($_SESSION['LoggedIn']) && !empty($_SESSION['Username']))
 elseif(!empty($_POST['username']) && !empty($_POST['password']))
 {
 	$username = mysql_real_escape_string($_POST['username']);
-	$password = md5(mysql_real_escape_string($_POST['password']));	
+	$password = md5(mysql_real_escape_string($_POST['password']));
 	
 	//If the user registered
 	if(!empty($_POST['register']))
@@ -99,6 +99,7 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
 	</head>
 	
 	<body>
+		<br/>
 		<div id="main" class="container">
 			<?php
 				echo($message);
