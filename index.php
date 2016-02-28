@@ -144,7 +144,7 @@ elseif(!empty($_POST['username']) && !empty($_POST['password']))
 			<br/><br/>
 			<div class="row">
 				<div class="col-md-2"></div>
-				<div class="col-md-8" id="searchbox">
+				<div class="col-md-8" id="searchbox"> 	
 					<form role="form" method="POST" action="search.php" name="search" id="search">
 						<label for="search_query">Search:</label><input class="form-control" type="text" name="search_query" id="search_query" /><br/>
 						<div class="radio-inline">
